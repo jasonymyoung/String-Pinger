@@ -8,7 +8,23 @@
 import UIKit
 import AVFoundation
 
+
 class ViewController: UIViewController, AVAudioRecorderDelegate {
+    let appTitle = "String Pinger"
+    let appDescription = """
+    String Pinger is an app that measures and converts the frequency of a badminton racket's string to units of tension.
+    You can also store tensions, when the racket is first strung, so that its degradation can be monitored over time.
+    This app is built specifically for badminton rackets. Using it on other sports' rackets will not be accurate.
+    """
+    
+    var numberOfMeasurements = 0
+    var measured = false
+    var confirmation: String {
+        get {
+            return "Number of measurements taken: \(numberOfMeasurements)"
+        }
+    }
+    
     var recordButton: UIButton!
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
@@ -99,6 +115,8 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
             // failed to record!
         }
     }
+    
+    
 
 
 }
